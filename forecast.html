@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heating Fuel Cost Forecaster</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Academic History</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <style>
         /* Your general styles go here */
 
@@ -19,11 +21,6 @@
             /* You can add more styles specific to mobile view as needed */
         }
     </style>
-<body>
-    <header>
-        <img src="images/logo.jpg" alt="Header Image">
-    </header>
-
     <nav>
         <button class="header-button" onclick="navigateTo('home')">Home</button>
         <button class="header-button" onclick="navigateTo('academic')">Academic History</button>
@@ -32,27 +29,28 @@
         <button class="header-button" onclick="navigateTo('skills')">Skills</button>
         <button class="header-button" onclick="navigateTo('contact')">Contact</button>
     </nav>
+<body class="container">
+    <header>
+        <h1 class="header-title">Heating Fuel Cost Forecaster</h1>
+    </header>
 
-    <main>
-        <div id="about-me">
-            <h2>Academic History</h2>
-                    <img src="images/academia.jpg" alt="University Image">
-                </div>
-                <div id="information">
-                    <h3>Staffordshire University</h3>
-                    <p>
-                        I attended Staffordshire University, where I pursued a degree in Computer Science.
-                        During my time at the university, I gained valuable knowledge in various programming languages,
-                        software development methodologies, and problem-solving skills.
-                        The academic journey equipped me with a solid foundation for my career in the field of web development.
-                    </p>
-                </div>
-    </main>
+    <section class="controls">
+        <label for="modeSelector" class="control-label">Mode:</label>
+        <select id="modeSelector" onchange="changeMode()" class="control-select">
+            <option value="historical">Historical</option>
+            <option value="forecast">Forecast</option>
+        </select>
+        <button onclick="scrollBack()" class="control-button">Scroll Back</button>
+        <button onclick="scrollForward()" class="control-button">Scroll Forward</button>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 WEB GROUP | Email: services@email.com</p>
-    </footer>
+    <section class="chart-container">
+        <canvas id="fuelCostChart"></canvas>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="error-message" class="error-message"></section>
+
+    <script src="scripts.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
